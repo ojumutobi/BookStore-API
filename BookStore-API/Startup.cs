@@ -36,7 +36,11 @@ namespace BookStore_API
 
 
 
-            services.AddSwaggerGen( c => { });
+            services.AddSwaggerGen( c => {
+            
+            
+            
+            });
             services.AddControllers();
 
 
@@ -61,6 +65,11 @@ namespace BookStore_API
             //app.UseStaticFiles(); ---------this is not needed
 
             app.UseRouting();
+            app.UseSwagger();
+
+            app.UseSwaggerUI(c => {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "BookStore API"); 
+            });          // "/swagger/v1/swagger.json", "BookStore API");
 
             app.UseAuthentication();
             app.UseAuthorization();
